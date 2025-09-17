@@ -1,7 +1,7 @@
 FROM python:3.13.7-slim
 LABEL maintainer="maksbusl@gmail.com"
 
-ENV PYTHOUNBUFFERED 1
+ENV PYTHONUBUFFERED 1
 
 WORKDIR ./
 

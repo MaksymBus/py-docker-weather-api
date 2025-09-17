@@ -21,9 +21,11 @@ def get_weather() -> None:
         response = requests.get(URL + f"key={api_key}&q={FILTERING}")
         response.raise_for_status()
         response_json = response.json()
-        location = (f"{response_json['location']['name']}/"
-                    f"{response_json['location']['country']}")
-        time = response_json['location']['localtime']
+        country = response_json["location"]["country"]
+        city = response_json["location"]["name"]
+        location = (f"{city}/"
+                    f"{country}")
+        time = response_json["location"]["localtime"]
         weather = (f"Weather: {response_json['current']['temp_c']} Celsius, "
                    f"{response_json['current']['condition']['text']}")
         print(f"{location} {time} {weather}")
